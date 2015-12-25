@@ -24,6 +24,7 @@ RUN set -xe \
 ENV PHOENIX_VERSION 1.1.0
 
 RUN mix local.hex --force \
+      && mix hex.info \
       && mix local.rebar --force \
       && mix archive.install https://github.com/phoenixframework/phoenix/releases/download/v$PHOENIX_VERSION/phoenix_new-$PHOENIX_VERSION.ez --force
 
