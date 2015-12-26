@@ -55,6 +55,12 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
 
+ENV POSTGRESQL_VERSION=9.4
+
+RUN apt-get update \
+      && apt-get install -y --no-install-recommends postgresql-client-${POSTGRESQL_VERSION} \
+      && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /code
 
 CMD [ "mix" ]
