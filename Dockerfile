@@ -8,8 +8,8 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 
-ENV ELIXIR_VERSION=1.1.1 \
-    ELIXIR_DOWNLOAD_SHA=3b7d6e4fdbcc82d19fa76f4e384f8a87535abcd00ef04528dc6b6706f32a106a
+ENV ELIXIR_VERSION=1.2.0 \
+    ELIXIR_DOWNLOAD_SHA=9f68ee5213b883c91f2f521df1f773ceec5913dbf075f7781b57ac97543e7268
 
 RUN set -xe \
       && curl -SL "https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VERSION}.tar.gz" -o elixir.tar.gz \
@@ -21,7 +21,7 @@ RUN set -xe \
       && make -j$(nproc) clean install \
       && rm -rf /usr/src/elixir
 
-ENV PHOENIX_VERSION 1.1.0
+ENV PHOENIX_VERSION 1.1.1
 
 RUN mix local.hex --force \
       && mix hex.info \
