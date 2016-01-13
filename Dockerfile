@@ -21,7 +21,7 @@ RUN set -xe \
       && make -j$(nproc) clean install \
       && rm -rf /usr/src/elixir
 
-ENV PHOENIX_VERSION 1.1.1
+ENV PHOENIX_VERSION 1.1.2
 
 RUN mix local.hex --force \
       && mix hex.info \
