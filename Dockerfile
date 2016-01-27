@@ -21,12 +21,12 @@ RUN set -xe \
       && make -j$(nproc) clean install \
       && rm -rf /usr/src/elixir
 
-ENV PHOENIX_VERSION 1.1.3
+ENV PHOENIX_VERSION 1.1.4
 
 RUN mix local.hex --force \
       && mix hex.info \
       && mix local.rebar --force \
-      && mix archive.install https://github.com/phoenixframework/phoenix/releases/download/v$PHOENIX_VERSION/phoenix_new-$PHOENIX_VERSION.ez --force
+      && mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new-${PHOENIX_VERSION}.ez --force
 
 # install Node.js and NPM in order to satisfy brunch.io dependencies
 # the snippet below is borrowed from the official nodejs Dockerfile
